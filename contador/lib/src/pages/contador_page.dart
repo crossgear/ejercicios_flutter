@@ -19,7 +19,7 @@ class _ContadorPageState extends State<ContadorPage>{
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Titulo",
+          "Stateful",
         ),
         centerTitle: true,
       ),
@@ -41,16 +41,19 @@ class _ContadorPageState extends State<ContadorPage>{
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         SizedBox(width: 30,),
-        FloatingActionButton(child: Icon(Icons.exposure_zero), onPressed: null, backgroundColor: _colorBoton,),
+        FloatingActionButton(child: Icon(Icons.exposure_zero), onPressed: _reset, backgroundColor: _colorBoton,),
         Expanded(child: SizedBox(),),
-        FloatingActionButton(child: Icon(Icons.remove), onPressed: null, backgroundColor: _colorBoton,),
+        FloatingActionButton(child: Icon(Icons.remove), onPressed: _sustraer, backgroundColor: _colorBoton,),
         SizedBox(width: 100),
-        FloatingActionButton(child: Icon(Icons.add), onPressed: null, backgroundColor: _colorBoton,),
+        FloatingActionButton(child: Icon(Icons.add), onPressed: _agregar, backgroundColor: _colorBoton,),
       ],
     );
     
-    
-    //FloatingActionButton(child: Icon(Icons.add_a_photo), onPressed: null);
   }
+
+  void _agregar() => setState(() { _conteo++; });
+  void _sustraer() => setState(() { if(_conteo > 0 ){_conteo--;} });
+  void _reset() => setState(() { _conteo = 0; });
+
 
 }
