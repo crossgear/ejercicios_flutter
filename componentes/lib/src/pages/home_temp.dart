@@ -14,7 +14,8 @@ class HomePageTemp extends StatelessWidget {
       ),
       body: ListView(
         children:
-        _crearItems(),
+        //_crearItems(),
+        _crearItemsCorta(),
 
       ),
     );
@@ -32,5 +33,28 @@ class HomePageTemp extends StatelessWidget {
 
     return lista;
   }
+
+  List<Widget> _crearItemsCorta(){
+    
+    return opciones.map(( item ){
+
+      return Column(
+        children: <Widget>[
+          ListTile(
+            title: Text(item),
+            subtitle: Text('algo'),
+            leading: Icon( Icons.access_alarm ),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: (){},
+          ),
+          Divider(color: _listTileColor,),
+        ],
+      );
+
+    }).toList();
+
+  }
+
+
 
 }
